@@ -8,10 +8,6 @@ import argparse
 import cv2
 import sys
 
-# ap = argparse.ArgumentParser()
-# ap.add_argument("-i", "--image", required=True, help="path to input image containing ArUCo tag")
-# ap.add_argument("-t", "--type", type=str, default="DICT_ARUCO_ORIGINAL", help="type of ArUCo tag to detect")
-# args = vars(ap.parse_args())
 
 def detect(image_path, type,):
 
@@ -40,6 +36,6 @@ def detect(image_path, type,):
 	cv2.imshow("Image", detected_markers)
 
 	# # Uncomment to save
-	cv2.imwrite("output_sample.png",detected_markers)
+	# cv2.imwrite("output_sample.png",detected_markers)
 
 	cv2.waitKey(0)
