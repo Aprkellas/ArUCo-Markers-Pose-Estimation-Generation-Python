@@ -2,7 +2,7 @@
 Sample Command:-
 python detect_aruco_images.py --image Images/test_image_1.png --type DICT_5X5_100
 '''
-import numpy as np
+# import numpy as np
 from utils import ARUCO_DICT, aruco_display
 import argparse
 import cv2
@@ -32,14 +32,15 @@ if ARUCO_DICT.get(args["type"], None) is None:
 # load the ArUCo dictionary, grab the ArUCo parameters, and detect
 # the markers
 print("Detecting '{}' tags....".format(args["type"]))
-arucoDict = cv2.aruco.Dictionary_get(ARUCO_DICT[args["type"]])
-arucoParams = cv2.aruco.DetectorParameters_create()
-corners, ids, rejected = cv2.aruco.detectMarkers(image, arucoDict, parameters=arucoParams)
-
+arucoDict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_100)
+arucoParams = cv2.aruco.DetectorParameters()
+detector = cv2.aruco.ArucoDetector(arucoDict, arucoParams)
+corners, ids, rejected = detector.detectMarkers(
+            image)
 detected_markers = aruco_display(corners, ids, rejected, image)
 cv2.imshow("Image", detected_markers)
 
 # # Uncomment to save
-# cv2.imwrite("output_sample.png",detected_markers)
+cv2.imwrite("output_sample.png",detected_markers)
 
 cv2.waitKey(0)
