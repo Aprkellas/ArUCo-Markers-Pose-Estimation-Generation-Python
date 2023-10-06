@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    return render_template('./flask/pages/homepage.html')
+    return render_template('homepage.html')
 
 @app.route('/image_selected', methods=['POST'])
 def image_selected(image):
