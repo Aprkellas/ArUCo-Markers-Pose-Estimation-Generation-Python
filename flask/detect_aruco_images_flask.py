@@ -17,7 +17,7 @@ def detect(image_path):
     height = int(width * (h / w))
     image = cv2.resize(image, (width, height), interpolation=cv2.INTER_CUBIC)
     detected = False
-    detected_markers = None  # Initialize to None
+    detected_markers = None 
 
     for tag_type, aruco_dict_value in ARUCO_DICT.items():
         if not detected:
@@ -26,7 +26,9 @@ def detect(image_path):
                 print(f"Detecting '{tag_type}' tags...")
                 arucoDict = cv2.aruco.getPredefinedDictionary(aruco_dict_value)
                 arucoParams = cv2.aruco.DetectorParameters()
-                corners, ids, rejected = cv2.aruco.detectMarkers(image, arucoDict, parameters=arucoParams)
+                detector = cv2.aruco.ArucoDetector(arucoDict, arucoParams)
+                corners, ids, rejected =  detector.detectMarkers(
+				image)
 
                 if len(corners) > 0:
                     detected_markers, detected = aruco_display(corners, ids, rejected, image)
