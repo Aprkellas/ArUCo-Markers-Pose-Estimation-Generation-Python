@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, Response
+from flask import Flask, render_template, request, Response, send_from_directory
 from detect_aruco_images_flask import *
 import cv2
 import numpy as np
@@ -11,6 +11,10 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     return render_template('homepage.html')
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory('static', 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/detect', methods=['POST'])
 def image_selected():

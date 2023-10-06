@@ -4,12 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="../static/homepage.js"></script>
-    <style src="./homepage.css"></style>
+    <link rel="stylesheet" href="../static/homepage.css" />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+      type="image/x-icon"
+    />
   </head>
   <body class="body">
-    <h1 class="title">Welcome</h1>
+    <h1 class="title">Aruco Decoder</h1>
 
     <hr />
+
+    <h5 class="description">
+      Select an image to decode - the number will appear in the top left of the
+      aruco
+    </h4>
 
     <div class="image-container">
       <input
