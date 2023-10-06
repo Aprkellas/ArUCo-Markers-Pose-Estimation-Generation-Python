@@ -11,6 +11,11 @@ function selectImage() {
       // You can now handle the selected file as needed
       console.log("Selected image file:", selectedFile);
 
+      // Display the selected image
+      const selectedImageUrl = URL.createObjectURL(selectedFile);
+      const selectedImageElement = document.getElementById("selectedImage");
+      selectedImageElement.src = selectedImageUrl;
+
       // Create a FormData object to send the selected file
       const formData = new FormData();
       formData.append("image", selectedFile);
@@ -23,11 +28,11 @@ function selectImage() {
         .then((response) => response.blob())
         .then((blob) => {
           // Create an object URL from the response blob
-          const imageUrl = URL.createObjectURL(blob);
+          const detectedImageUrl = URL.createObjectURL(blob);
 
-          // Display the detected image in an <img> element
-          const imgElement = document.getElementById("detectedImage");
-          imgElement.src = imageUrl;
+          // Display the detected image
+          const detectedImageElement = document.getElementById("detectedImage");
+          detectedImageElement.src = detectedImageUrl;
         });
     }
   });

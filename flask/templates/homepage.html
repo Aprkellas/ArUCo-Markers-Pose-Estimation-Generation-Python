@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="../static/homepage.js"></script>
     <style src="./homepage.css"></style>
   </head>
@@ -9,8 +11,31 @@
 
     <hr />
 
-    <button class="btn" onclick="{selectImage}">Select image</button>
-
     <img id="detectedImage" src="" alt="Detected Image" />
+
+    <div class="image-container">
+      <!-- Display the selected image -->
+      <img
+        id="selectedImage"
+        src="#"
+        alt="Selected Image"
+        style="max-width: 300px; max-height: 300px"
+      />
+      <!-- Display the detected image -->
+      <img
+        id="detectedImage"
+        src="#"
+        alt="Detected Image"
+        style="max-width: 300px; max-height: 300px"
+      />
+
+      <input
+        type="file"
+        id="imageInput"
+        style="display: none"
+        accept="image/*"
+      />
+      <button class="btn" onclick="selectImage()">Select image</button>
+    </div>
   </body>
 </html>
