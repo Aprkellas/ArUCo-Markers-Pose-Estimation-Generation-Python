@@ -12,8 +12,8 @@ app = Flask(__name__)
 def homepage():
     return render_template('homepage.html')
 
-@app.route('/image_selected', methods=['POST'])
-def image_selected(image):
+@app.route('/detect', methods=['POST'])
+def image_selected():
     if request.method == 'POST':
         # Assuming the selected image is sent as a POST request
         uploaded_image = request.files['image']

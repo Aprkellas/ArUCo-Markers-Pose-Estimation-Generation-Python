@@ -6,29 +6,12 @@
     <script src="../static/homepage.js"></script>
     <style src="./homepage.css"></style>
   </head>
-  <body>
+  <body class="body">
     <h1 class="title">Welcome</h1>
 
     <hr />
 
-    <img id="detectedImage" src="" alt="Detected Image" />
-
     <div class="image-container">
-      <!-- Display the selected image -->
-      <img
-        id="selectedImage"
-        src="#"
-        alt="Selected Image"
-        style="max-width: 300px; max-height: 300px"
-      />
-      <!-- Display the detected image -->
-      <img
-        id="detectedImage"
-        src="#"
-        alt="Detected Image"
-        style="max-width: 300px; max-height: 300px"
-      />
-
       <input
         type="file"
         id="imageInput"
@@ -36,6 +19,15 @@
         accept="image/*"
       />
       <button class="btn" onclick="selectImage()">Select image</button>
+
+      <!-- Display the detected image -->
+      <img
+        id="detectedImage"
+        src="#"
+        alt="Detected Image"
+        style="display: none"
+        style="max-width: 500px; max-height: 500px"
+      />
     </div>
   </body>
 </html>
