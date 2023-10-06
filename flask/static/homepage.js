@@ -11,7 +11,24 @@ function selectImage() {
       // You can now handle the selected file as needed
       console.log("Selected image file:", selectedFile);
 
-      fetch();
+      // Create a FormData object to send the selected file
+      const formData = new FormData();
+      formData.append("image", selectedFile);
+
+      // Send a POST request to the /detect endpoint
+      fetch("/detect", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.blob())
+        .then((blob) => {
+          // Create an object URL from the response blob
+          const imageUrl = URL.createObjectURL(blob);
+
+          // Display the detected image in an <img> element
+          const imgElement = document.getElementById("detectedImage");
+          imgElement.src = imageUrl;
+        });
     }
   });
 }
